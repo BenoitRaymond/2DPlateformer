@@ -337,7 +337,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0812855, y: 1}
+    m_SensorSize: {x: 1.9870634, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13935,6 +13935,7 @@ GameObject:
   - component: {fileID: 1442628555}
   - component: {fileID: 1442628557}
   - component: {fileID: 1442628556}
+  - component: {fileID: 1442628558}
   m_Layer: 0
   m_Name: Deco
   m_TagString: Untagged
@@ -14065,6 +14066,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 3, y: 12, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -18, y: 15, z: 0}
     second:
       serializedVersion: 2
@@ -14093,6 +14104,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7893ea689fd40714cad0140b170db495, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 6fadc4ac926a3f14a86c031a47b6e3d0, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: c1fe4984f90bfa140a5a2f4182a7348e, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 194833225, guid: 4cec844a328b38449b5ab595bd50215e, type: 3}
@@ -14100,8 +14113,10 @@ Tilemap:
     m_Data: {fileID: -589651620, guid: 4cec844a328b38449b5ab595bd50215e, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1762305507, guid: 4cec844a328b38449b5ab595bd50215e, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1230639993, guid: 4cec844a328b38449b5ab595bd50215e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 5
+  - m_RefCount: 6
     m_Data:
       e00: 1
       e01: 0
@@ -14138,7 +14153,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -14164,6 +14179,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &1442628558
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442628554}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.5, y: 13}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1603936006
 GameObject:
   m_ObjectHideFlags: 0
