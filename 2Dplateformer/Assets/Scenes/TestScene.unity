@@ -368,7 +368,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6402879, y: 1}
+    m_SensorSize: {x: 2.3276956, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13867,6 +13867,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1379544274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379544275}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1379544275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379544274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1836830722}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1416141310
 GameObject:
   m_ObjectHideFlags: 3
@@ -14279,7 +14310,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 594e775b748decd4798e9cec57439936, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -14349,6 +14380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 433030471}
+  - {fileID: 1379544275}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14390,11 +14422,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41853deca9d548b4da7039f9dfa6a617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfJump: 2
+  amountOfJump: 1
   jumpForce: 16
   movementSpeed: 10
   groundCheckRadius: 0.3
+  wallCheckDistance: 0.4
+  wallSlideSpeed: 2
   groundCheck: {fileID: 433030471}
+  wallCheck: {fileID: 1379544275}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
