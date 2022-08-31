@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
     private bool isWalking;
     private bool isGrounded;
+    private bool isTouchingWall;
+    private bool isWallSliding;
     private bool canJump;
 
     private Rigidbody2D rb;
@@ -22,8 +25,11 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 16.0f;
     public float movementSpeed=10.0f;
     public float groundCheckRadius;
+    public float wallCheckDistance; 
+    public float wallSlideSpeed; 
 
     public Transform groundCheck;
+    public Transform wallCheck;
 
     public LayerMask whatIsGround;
 
@@ -42,8 +48,13 @@ public class PlayerController : MonoBehaviour
         CheckmovementDicrection();
         updateAnimations();
         CheckIfCanJump();
+        CheckIfWallSliding();
     }
 
+    private void CheckIfWallSliding()
+    {
+        isWallSliding = isTouchingWall && !isGrounded && rb.velocity.y < 0;
+    }
 
     private void FixedUpdate()
     {
@@ -64,6 +75,7 @@ public class PlayerController : MonoBehaviour
     private void CheckSurroundings()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
     }
 
     private void CheckmovementDicrection()
@@ -109,6 +121,15 @@ public class PlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         rb.velocity = new Vector2(movementSpeed*movementInputDirection, rb.velocity.y);
+
+        if (isWallSliding)
+        {
+            if(rb.velocity.y < -wallSlideSpeed)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
+            }
+
+        }
     }
     
     private void Flip()
@@ -120,5 +141,7 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+
     }
 }
