@@ -16,6 +16,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("GameScene_Level1");
     }
 
+    public void SelectLevel(int level)
+    {
+        string selectedLevel = "GameScene_Level" + level.ToString();
+        SceneManager.LoadScene(selectedLevel);
+    }
     public void QuitGame()
     {
         Application.Quit();
