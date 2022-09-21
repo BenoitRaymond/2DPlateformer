@@ -2,35 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISaveable
 {
     public PlayerController controller;
 
     private void Start()
     {
-        LoadData();
+
     }
 
     private void OnApplicationQuit()
     {
-        SaveData();
+
     }
 
-    public void SaveData()
+    public object CaptureState()
     {
-        SaveSystem.SavePlayerController(controller);
+        throw new System.NotImplementedException();
     }
 
-    public void LoadData()
+    public void RestoreState(object state)
     {
-        PlayerData data = SaveSystem.LoadPlayer();
-
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = 0;
-
-        controller.transform.position = position;
+        throw new System.NotImplementedException();
     }
-
 }
